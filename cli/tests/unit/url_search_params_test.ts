@@ -134,6 +134,12 @@ unitTest(function urlSearchParamsMissingPair(): void {
   assertEquals(searchParams.toString(), "c=4&a=54");
 });
 
+unitTest(function urlSearchParamsMissingPair(): void {
+  const init = {a: "hello world"};
+  const searchParams = new URLSearchParams(init);
+  assertEquals(searchParams.toString(), "a=hello+world");
+});
+
 // If pair does not contain exactly two items, then throw a TypeError.
 // ref https://url.spec.whatwg.org/#interface-urlsearchparams
 unitTest(function urlSearchParamsShouldThrowTypeError(): void {
